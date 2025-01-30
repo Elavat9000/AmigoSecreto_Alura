@@ -6,8 +6,13 @@ let amigos = [];
 function agregarAmigo() {
     let nombre = document.getElementById('amigo').value.trim();
 
+    if (esVacio(nombre)) {
+        alert("El campo está vacío. Por favor, ingresa un nombre.");
+        return;
+    }
+
     if (!esNombreValido(nombre)) {
-        alert("Por favor, ingresa un nombre válido (solo letras y sin dejar el campo vacío).");
+        alert("Por favor, ingresa un nombre válido (solo letras y espacios).");
         return;
     }
 
@@ -48,4 +53,9 @@ function sortearAmigo() {
 
     let amigoSecreto = amigos[Math.floor(Math.random() * amigos.length)];
     document.getElementById('resultado').textContent = `🎉El amigo secreto es:  ${amigoSecreto}🎁`;
+}
+
+//Funcion para verificar si la zona de texto esta vacia
+function esVacio(texto) {
+    return texto.trim() === ''; 
 }
