@@ -2,6 +2,7 @@
 
 let amigos = [];
 
+//Crea una funcion que agrega a los amigos que quiera uno, tambien verifica que si tiene un valor nulo  lanza el mensaje, de advertencia
 function agregarAmigo() {
     let nombre = document.getElementById('amigo').value.trim();
 
@@ -19,11 +20,14 @@ function agregarAmigo() {
     }
 }
 
+
+//Esta funcion verifica si no se esta colocando numeros o valores inecesarios
 function esNombreValido(nombre) {
     let regex = /^[A-Za-zÁáÉéÍíÓóÚúÜüÑñ\s]+$/; 
     return regex.test(nombre); 
 }
 
+//cada vez que se coloca un nuevo nombre se agrega a la lista
 function actualizarLista() {
     let lista = document.getElementById('listaAmigos');
     lista.innerHTML = ''; 
@@ -35,6 +39,7 @@ function actualizarLista() {
     }
 }
 
+//En esta funcion se sortea el nombre ganador
 function sortearAmigo() {
     if (amigos.length < 2) {
         alert("Se necesitan al menos 2 amigos.");
